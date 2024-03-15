@@ -1,0 +1,55 @@
+return {
+  'someone-stole-my-name/yaml-companion.nvim',
+  dependencies = {
+    'neovim/nvim-lspconfig',
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
+  },
+  config = function()
+    require('telescope').load_extension 'yaml_schema'
+
+    require('lspconfig')['yamlls'].setup(require('yaml-companion').setup {
+      builtin_matchers = {
+        kubernetes = { enabled = true },
+      },
+
+      schemas = {
+        {
+          name = 'Azure Pipeline',
+          uri = 'https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json',
+        },
+        {
+          name = 'GitHub Workflow',
+          uri = 'https://json.schemastore.org/github-workflow.json',
+        },
+      },
+      schemaDownload = { enable = true },
+
+      lspconfig = {
+        settings = {
+          redhat = { telemetry = { enabled = false } },
+          yaml = {
+            validate = true,
+            format = { enable = false },
+            schemaStore = {
+              enable = false,
+              url = '',
+            },
+            schemaDownload = { enable = true },
+            schemas = {
+              ['http://json.schemastore.org/github-workflow'] = '.github/workflows/*',
+              ['http://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
+              ['http://json.schemastore.org/ansible-stable-2.9'] = 'roles/tasks/*.{yml,yaml}',
+              ['http://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
+              ['http://json.schemastore.org/kustomization'] = 'kustomization.{yml,yaml}',
+              ['http://json.schemastore.org/ansible-playbook'] = '*play*.{yml,yaml}',
+              ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] = '*api*.{yml,yaml}',
+              ['https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json'] = '*docker-compose*.{yml,yaml}',
+              ['https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json'] = 'git/*/pipelines/*.{yml,yaml}',
+            },
+          },
+        },
+      },
+    })
+  end,
+}
