@@ -22,6 +22,10 @@ return {
           name = 'GitHub Workflow',
           uri = 'https://json.schemastore.org/github-workflow.json',
         },
+        {
+          name = 'Kubernetes 1.29.0',
+          uri = 'https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.29.0-standalone-strict/all.json',
+        },
       },
       schemaDownload = { enable = true },
 
@@ -37,13 +41,14 @@ return {
             },
             schemaDownload = { enable = true },
             schemas = {
+              kubernetes = 'deployment/*.{yml,yaml}',
               ['http://json.schemastore.org/github-workflow'] = '.github/workflows/*',
               ['http://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
               ['http://json.schemastore.org/ansible-stable-2.9'] = 'roles/tasks/*.{yml,yaml}',
               ['http://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
               ['http://json.schemastore.org/kustomization'] = 'kustomization.{yml,yaml}',
               ['http://json.schemastore.org/ansible-playbook'] = '*play*.{yml,yaml}',
-              ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] = '*api*.{yml,yaml}',
+              ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] = '*oas*.{yml,yaml}',
               ['https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json'] = '*docker-compose*.{yml,yaml}',
               ['https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json'] = 'git/*/pipelines/*.{yml,yaml}',
             },
