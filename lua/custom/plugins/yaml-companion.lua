@@ -11,6 +11,7 @@ return {
     require('lspconfig')['yamlls'].setup(require('yaml-companion').setup {
       builtin_matchers = {
         kubernetes = { enabled = true },
+        cloud_init = { enabled = true },
       },
 
       schemas = {
@@ -53,7 +54,7 @@ return {
               ['http://json.schemastore.org/kustomization'] = 'kustomization.{yml,yaml}',
               ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] = '*oas*.{yml,yaml}',
               ['https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json'] = '*docker-compose*.{yml,yaml}',
-              ['https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json'] = 'git/*/pipeline/*.{yml,yaml}',
+              ['https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json'] = 'git/*.{yml,yaml}',
             },
           },
         },

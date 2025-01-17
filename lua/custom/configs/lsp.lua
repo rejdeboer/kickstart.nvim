@@ -1,6 +1,6 @@
 local nvim_lsp = require 'lspconfig'
 
-nvim_lsp.tsserver.setup {
+nvim_lsp.ts_ls.setup {
   on_attach = on_attach,
   filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
   cmd = { 'typescript-language-server', '--stdio' },
@@ -20,6 +20,8 @@ vim.diagnostic.config {
   float = { border = _border },
 }
 
+-- vim.lsp.set_log_level 'trace'
+--
 -- TODO: Will I ever do gamedev again?
 -- local godot_port = os.getenv 'GDScript_Port' or '6005'
 -- local cmd = vim.lsp.rpc.connect('127.0.0.1', godot_port)
