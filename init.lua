@@ -453,7 +453,7 @@ require('lazy').setup {
             'clangd',
             '--background-index',
             '--clang-tidy',
-            '--log=verbose',
+            --'--log=verbose',
           },
         },
         gopls = {},
