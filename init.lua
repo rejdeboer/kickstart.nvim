@@ -458,12 +458,12 @@ require('lazy').setup {
             --'--log=verbose',
           },
         },
-        gopls = {},
+        -- gopls = {},
         -- pyright = {},
         rust_analyzer = {},
-        html = {},
+        -- html = {},
         terraformls = {},
-        yamlls = {},
+        -- yamlls = {},
         gdtoolkit = {},
 
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -472,7 +472,7 @@ require('lazy').setup {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        ts_ls = {},
+        -- ts_ls = {},
 
         lua_ls = {
           settings = {
@@ -682,7 +682,7 @@ require('lazy').setup {
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'bash', 'c', 'cpp', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'yaml' },
+        ensure_installed = { 'bash', 'c', 'cpp', 'rust', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'yaml' },
         -- Autoinstall languages that are not installed
         auto_install = true,
         highlight = { enable = true },
@@ -697,10 +697,12 @@ require('lazy').setup {
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
+  { 'nvim-treesitter/nvim-treesitter-context' },
 
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   { import = 'custom.plugins' },
+  { import = 'kickstart.plugins' },
 }
 
 -- ENABLE CUSTOM PLUGIN CONFIGS
