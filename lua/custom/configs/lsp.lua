@@ -21,22 +21,3 @@ vim.diagnostic.config {
 }
 
 -- vim.lsp.set_log_level 'trace'
---
--- TODO: Will I ever do gamedev again?
--- local godot_port = os.getenv 'GDScript_Port' or '6005'
--- local cmd = vim.lsp.rpc.connect('127.0.0.1', godot_port)
--- local pipe = '/tmp/godot.pipe'
-
--- local godot_project = vim.fn.getcwd() .. '/project.godot'
--- if godot_project then
---   vim.fn.serverstart './godothost'
--- end
-
--- vim.lsp.start {
---   name = 'Godot',
---   cmd = cmd,
---   root_dir = vim.fs.dirname(vim.fs.find({ 'project.godot', '.git' }, { upward = true })[1]),
---   on_attach = function(client, bufnr)
---     vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
---   end,
--- }
