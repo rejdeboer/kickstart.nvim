@@ -8,7 +8,7 @@ return {
   config = function()
     require('telescope').load_extension 'yaml_schema'
 
-    require('lspconfig')['yamlls'].setup(require('yaml-companion').setup {
+    vim.lsp.config('yamlls', (require('yaml-companion').setup {
       builtin_matchers = {
         kubernetes = { enabled = true },
         cloud_init = { enabled = true },
@@ -59,6 +59,6 @@ return {
           },
         },
       },
-    })
+    }))
   end,
 }
