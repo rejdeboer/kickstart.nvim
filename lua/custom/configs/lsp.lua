@@ -20,6 +20,8 @@ vim.diagnostic.config {
   float = { border = _border },
 }
 
+vim.lsp.enable 'gdscript'
+
 -- vim.lsp.set_log_level 'trace'
 
 -- local godot_port = os.getenv 'GDScript_Port' or 6005
